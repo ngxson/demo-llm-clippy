@@ -24,6 +24,9 @@ function App() {
     if (!wllama.isModelLoaded()) {
       wllama.loadModelFromHF(HF_REPO, HF_FILE, {
         n_ctx: 2048,
+        progressCallback: ({ total, loaded }) => {
+          setResponse(`Download model... ${Math.round(loaded / total * 100)}%`);
+        },
       }).then(() => {
         setReady(true);
         setResponse('How can I help you?');

@@ -38,6 +38,7 @@ function App() {
       { role: 'system', content: 'You are Clippy, the Office Assistant was an intelligent user interface for Windows 98. Acts like the time is 1998 and you are on an old computer. Answer with short, concise responses.' },
       { role: 'user', content: text },
     ], {
+      // @ts-ignore
       onNewToken(token, piece, currentText) {
         setResponse(currentText);
       },
